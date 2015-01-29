@@ -1,5 +1,3 @@
-// require path
-
 require.config({
    deps: ['app'],
 

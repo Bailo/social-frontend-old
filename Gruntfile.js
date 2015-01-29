@@ -55,7 +55,11 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= appConfig.app %>/**/*.js'
+                    '<%= appConfig.app %>/**/*.js',
+                    '<%= appConfig.app %>/**/*.css',
+                    '<%= appConfig.app %>/**/*.html',
+
+
                 ],
                 tasks: ['requirejs:dev']
             }
@@ -98,7 +102,7 @@ module.exports = function (grunt) {
                             '*.{ico,txt}',
                             'images/{,*/}*.{webp,gif}',
                             'components/**/*.{js,map,css}',
-                            '**/**/*.html'
+                            '**/*.html'
                         ]
                     }
                 ]

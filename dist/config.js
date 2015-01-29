@@ -3027,12 +3027,12 @@
 
 }));
 
-define('modules/static/home.view',[
+define('modules/static/feed.view',[
     'backbone'
 ], function(Backbone) {
 
     /**
-     * Home View
+     * Feed View
      */
     return Backbone.View.extend({
 
@@ -3040,28 +3040,53 @@ define('modules/static/home.view',[
          * Initialization function
          */
         initialize: function() {
-            console.log('home init')
+            console.log('feed init')
         },
 
         /**
          * Render
          */
         render: function () {
-            console.log('home render')
+            console.log('feed render')
+        }
+    });
+});
+define('modules/static/profile.view',[
+    'backbone'
+], function(Backbone) {
+
+    /**
+     * Profile View
+     */
+    return Backbone.View.extend({
+
+        /**
+         * Initialization function
+         */
+        initialize: function() {
+            console.log('profile init')
+        },
+
+        /**
+         * Render
+         */
+        render: function () {
+            console.log('profile render')
         }
     });
 });
 define('router',[
     'backbone',
-    'modules/static/home.view'
-], function(Backbone, HomeView) {
+    'modules/static/feed.view',
+    'modules/static/profile.view'
+], function(Backbone, FeedView, ProfileView) {
 
     /**
      * Router
      */
     return Backbone.Router.extend({
         routes: {
-            '' : 'home',
+            '' : 'feed',
             'profile': 'profile'
         },
 
@@ -3076,20 +3101,23 @@ define('router',[
                 this.currentView.undelegateEvents();
                 this.currentView.remove();
             }
+
             Backbone.history.navigate(fragment, options);
+
             return this;
         },
 
         /**
          * ROUTES:
          */
-        home: function() {
-            this.currentView = new HomeView();
+        feed: function() {
+            this.currentView = new FeedView();
             this.currentView.render();
         },
 
         profile: function() {
-            var that = this;
+            this.currentView = new ProfileView();
+            this.currentView.render();
         }
     });
 });
@@ -3103,11 +3131,37 @@ define('modules/app/app.view',[
     return Backbone.View.extend({
 
         /**
+         * Events
+         */
+
+        el: 'body',
+
+        events: {
+            'click #profile' : 'getProfile',
+            'click #feed'    : 'getFeed'
+        },
+
+        /**
+         * Navigation list
+         */
+
+        getProfile: function() {
+            window.app.router.navigate('profile', {trigger: true, replace: true});
+        },
+
+        getFeed: function() {
+            window.app.router.navigate('feed', {trigger: true, replace: true});
+        },
+
+        /**
          * Initialization function
          */
         initialize: function() {
             console.log('app init')
         }
+
+
+
     });
 });
 require([

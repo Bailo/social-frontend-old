@@ -1,14 +1,15 @@
 define([
     'backbone',
-    'modules/static/home.view'
-], function(Backbone, HomeView) {
+    'modules/static/feed.view',
+    'modules/static/profile.view'
+], function(Backbone, FeedView, ProfileView) {
 
     /**
      * Router
      */
     return Backbone.Router.extend({
         routes: {
-            '' : 'home',
+            '' : 'feed',
             'profile': 'profile'
         },
 
@@ -23,20 +24,23 @@ define([
                 this.currentView.undelegateEvents();
                 this.currentView.remove();
             }
+
             Backbone.history.navigate(fragment, options);
+
             return this;
         },
 
         /**
          * ROUTES:
          */
-        home: function() {
-            this.currentView = new HomeView();
+        feed: function() {
+            this.currentView = new FeedView();
             this.currentView.render();
         },
 
         profile: function() {
-            var that = this;
+            this.currentView = new ProfileView();
+            this.currentView.render();
         }
     });
 });
