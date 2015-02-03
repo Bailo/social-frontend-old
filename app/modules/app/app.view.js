@@ -1,17 +1,20 @@
 define([
-    'backbone'
-], function(Backbone) {
+    'backbone',
+    'doT',
+    'text!../static/templates/header.dot'
+], function(Backbone, doT, Header) {
 
     /**
      * Application View
      */
     return Backbone.View.extend({
 
+        el: 'body',
+        template: doT.template(Header),
+
         /**
          * Events
          */
-
-        el: 'body',
 
         events: {
             'click #profile' : 'getProfile',
@@ -27,14 +30,24 @@ define([
         },
 
         getFeed: function() {
-            window.app.router.navigate('feed', {trigger: true, replace: true});
+            window.app.router.navigate('', {trigger: true, replace: true});
         },
 
         /**
          * Initialization function
          */
         initialize: function() {
+            this.render();
             console.log('app init')
+        },
+
+        data:  {
+                'name' : 'nik',
+                'age'  : 23
+        },
+
+        render: function(){
+//            this.$el.html(this.template());
         }
 
 

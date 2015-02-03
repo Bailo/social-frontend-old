@@ -1,0 +1,49 @@
+header {
+  background: #ffff00 !important;
+  & form {
+    border: none !important;
+  }
+
+  & .icon-bar {
+    background-color: $navbar-background-color-active !important;
+  }
+
+  & .glyphicon-bell {
+    color: $white;
+    font-size: 24px;
+    margin-top: 12px;
+    margin-left: 15px;
+  }
+
+  & .round {
+    width: 8px;
+    height: 8px;
+    background: #E70000;
+    @include radius($type: border-radius, $value: 8px);
+    margin-left: 180px;
+    margin-top: 8px;
+  }
+
+
+  & .menu-toggle {
+    position: absolute;
+    right: 12px;
+    top:-4px;
+    height: 41px;
+  }
+
+  & .search-toggle {
+    cursor: pointer;
+    position: absolute;
+    right: 62px;
+    top: -4px;
+    font-size: 21px;
+    color: $navbar-background-color-active;
+  }
+
+  & .collapse-menu {
+    padding-left: 0;
+  }
+
+}
+

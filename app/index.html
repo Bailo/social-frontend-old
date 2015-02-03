@@ -2,35 +2,353 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Social Frontend</title>
+    <link rel="stylesheet" href="styles/scss/main.css"/>
+
 </head>
 <body>
 <div id="sandbox" style="overflow:hidden; height:1px;"></div>
 
-<style>
-    .btn {
-        width: 70px;
-        height: 30px;
-        color: #fff;
-        background: #030;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 40px;
-        cursor: pointer;
-    }
 
-    .btn:hover {
-        background: #222;
-    }
-</style>
 
-<div class="btn" id="feed">
-    Feed
+<header>
+    <div class="row">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="glyphicon glyphicon-search navbar-toggle search-toggle" data-toggle="collapse"
+                          data-target="#bs-example-navbar-collapse-4"></span>
+                    <button type="button" class="navbar-toggle menu-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-5">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">coloris.com</a>
+                    <a class="navbar-link" href="#"><span class="glyphicon glyphicon-bell"></span></a>
+
+                </div>
+                <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-4" >
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-search search-only">
+                            <span class="search-icon glyphicon glyphicon-search"></span>
+                            <input class="form-control search-query">
+                        </div>
+                    </form>
+                </div>
+                <div class="navbar-collapse collapse collapse-menu" id="bs-example-navbar-collapse-5">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<div class="page-layout container">
+<aside class="col-lg-3 col-md-3 col-sm-4 left-side-bar">
+    <div class="current-user-label">
+        <div class="user-pic pull-left"></div>
+        <div class="user-body">
+            <h4>Чарли Харпер</h4>
+            <p>Software Engineer</p>
+        </div>
+    </div>
+
+    <div class="main-menu">
+        <ul class="nav nav-pills nav-stacked main-nav">
+            <li><a href="./profile.html"><span class="glyphicon glyphicon-user"></span> Профиль</a></li>
+            <li><a href="./m.html"><span class="glyphicon glyphicon-envelope"></span> Сообщения <span
+                    class="badge badge-danger pull-right">20</span></a></li>
+            <li><a href="./index.html"><span class="glyphicon glyphicon-list-alt"></span> Лента новостей</a></li>
+        </ul>
+
+        <ul class="nav nav-pills nav-stacked info-nav">
+            <li class="list-header">Полезная информация</li>
+            <li class="separate"></li>
+            <li><a href="#"><span class="glyphicon glyphicon-road"></span> С чего начать</a></li>
+            <li><a href="./files.html"><span class="glyphicon glyphicon-paperclip"></span> Файлы <span class="badge badge-default pull-right">7</span></a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> График работы</a></li>
+        </ul>
+
+        <ul class="nav nav-pills nav-stacked group-nav">
+
+            <li class="list-header">Группы</li>
+            <li class="separate"></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> ТП</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> Продажи</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> Маркетинг и PR</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> Банк идей</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-list"></span> Все группы</a></li>
+        </ul>
+    </div>
+
+
+
+
+</aside>
+
+<section class="page-body col-lg-6 col-md-6 col-sm-8 col-xs-12">
+    <!-- start main panel-->
+
+    <div class="panel panel-normal post-panel">
+        <ul id="myTab1" class="nav nav-tabs nav-justified panel-heading">
+            <!--<li class="input-lbl">-->
+            <input type="text" class="form-control" id="post-input-lbl" placeholder="Что нового, дружище?"/>
+            <!--</li>-->
+            <li class="active"><a href="#post-news" data-toggle="tab"><span
+                    class="glyphicon glyphicon-bullhorn"></span> Новость</a></li>
+            <li><a href="#post-event" data-toggle="tab"><span
+                    class="glyphicon glyphicon-calendar"></span> События</a></li>
+            <li><a href="#post-quiz" data-toggle="tab">
+                <span class="glyphicon glyphicon-stats"></span> Опрос</a></li>
+            <li><a href="#post-thx" data-toggle="tab"><span
+                    class="glyphicon glyphicon-thumbs-up"></span> Спасибо</a></li>
+
+
+        </ul>
+        <div id="myTabContent" class="tab-content post-panel-content">
+            <div class="tab-pane fade active in" id="post-news">
+                <form action="" role="form" class="post-news-form">
+                    <textarea class="form-control" rows="3" placeholder="Над чем работаете?"
+                              id="post-textarea"></textarea>
+                    <input class="form-control" placeholder="Кого уведомить..">
+                    <button type="button" class="btn pull-left">Отправить</button>
+                    <div class="form-group attach pull-left">
+                        <!-- must be inputs tags-->
+                        <span class="glyphicon glyphicon-paperclip"></span>
+                        <span class="glyphicon glyphicon-camera"></span>
+                    </div>
+                </form>
+
+            </div>
+            <div class="tab-pane fade" id="post-event">
+                <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>
+            </div>
+            <div class="tab-pane fade" id="post-quiz">
+                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>
+            </div>
+            <div class="tab-pane fade" id="post-thx">
+                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche ...</p>
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="feed">
+        <li class="blog-item">
+            <div class="blog-item-pic pull-left">
+                <!-- If server side give correct photo with need size - after this must be tag IMG
+                     Now it's background in style -->
+            </div>
+            <div class="blog-item-body">
+                <a href="#" class="title">Александр Кашменский</a>
+                <p class="content">
+                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate?
+                </p>
+            </div>
+            <div class="blog-item-footer">
+                <ul>
+                    <li>
+                        <span class="count-like">12</span>
+                        <span class="glyphicon glyphicon-heart like"></span>
+                        Нравится
+                    </li>
+                    <li>
+                        <span class="count-repost">7</span>
+                        <span class="glyphicon glyphicon-bullhorn"></span>
+                        Поделиться
+                    </li>
+                </ul>
+
+
+            </div>
+        </li>
+
+        <li class="blog-item">
+            <div class="blog-item-pic pull-left">
+                <!-- If server side give correct photo with need size - after this must be tag IMG
+                     Now it's background in style -->
+            </div>
+            <div class="blog-item-body">
+                <a href="#" class="title">Александр Кашменский</a>
+                <p class="content">
+                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.
+                </p>
+            </div>
+            <div class="blog-item-footer">
+                <ul>
+                    <li>
+                        <span class="count-like">3</span>
+                        <span class="glyphicon glyphicon-heart like"></span>
+                        Нравится
+                    </li>
+                    <li>
+                        <span class="count-repost">2</span>
+                        <span class="glyphicon glyphicon-bullhorn"></span>
+                        Поделиться
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+        <li class="blog-item">
+            <div class="blog-item-pic pull-left">
+                <!-- If server side give correct photo with need size - after this must be tag IMG
+                     Now it's background in style -->
+            </div>
+            <div class="blog-item-body">
+                <a href="#" class="title">Александр Кашменский</a>
+                <p class="content">
+                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.
+                </p>
+            </div>
+            <div class="blog-item-footer">
+                <ul>
+                    <li>
+                        <span class="count-like">44</span>
+                        <span class="glyphicon glyphicon-heart like"></span>
+                        Нравится
+                    </li>
+                    <li>
+                        <span class="count-repost"></span>
+                        <span class="glyphicon glyphicon-bullhorn"></span>
+                        Поделиться
+                    </li>
+                </ul>
+            </div>
+        </li>
+
+    </ul>
+
+</section>
+
+<aside class="right-side-bar col-lg-3 col-md-3">
+    <div class="panel panel-danger recommended">
+        <div class="panel-heading">
+            <h3 class="panel-title">Рекомендуемые люди</h3>
+        </div>
+        <div class="panel-body">
+            <div class="item">
+                <div class="item-pic pull-left"></div>
+                <div class="item-body">
+                    <a href="#" class="link-to">Ярослав Сапроненко</a>
+                    <a href="#" class="start-to">Подписаться</a>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <div class="item-pic pull-left"></div>
+                <div class="item-body">
+                    <a href="#" class="link-to">Дмитрий Кашменский </a>
+                    <a href="#" class="start-to">Подписаться</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-pic pull-left"></div>
+                <div class="item-body">
+                    <a href="#" class="link-to">Станислав Загурский</a>
+                    <a href="#" class="start-to">Подписаться</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-danger recommended recommended-groups">
+        <div class="panel-heading">
+            <h3 class="panel-title">Рекомендуемые группы</h3>
+        </div>
+        <div class="panel-body">
+            <div class="item">
+                <div class="item-pic pull-left"></div>
+                <div class="item-body">
+                    <a href="#" class="link-to">Продажи</a>
+                    <a href="#" class="start-to">Вступить в группу</a>
+                </div>
+            </div>
+
+
+            <div class="item">
+                <div class="item-pic pull-left"></div>
+                <div class="item-body">
+                    <a href="#" class="link-to">Маркетинг</a>
+                    <a href="#" class="start-to">Вступить в группу</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="item-pic pull-left"></div>
+                <div class="item-body">
+                    <a href="#" class="link-to">Банк идей</a>
+                    <a href="#" class="start-to">Вступить в группу</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">Дни рождения коллег</h3>
+        </div>
+        <div class="panel-body">Panel content</div>
+    </div>
+</aside>
 </div>
 
-<div class="btn" id="profile">
-    Profile
-</div>
+
+
+
+
+
+
+
+
+<!--<style>-->
+    <!--.btn {-->
+        <!--width: 70px;-->
+        <!--height: 30px;-->
+        <!--color: #fff;-->
+        <!--background: #030;-->
+        <!--border-radius: 5px;-->
+        <!--padding: 10px;-->
+        <!--margin: 40px;-->
+        <!--cursor: pointer;-->
+    <!--}-->
+
+    <!--.btn:hover {-->
+        <!--background: #222;-->
+    <!--}-->
+
+    <!--#swap {-->
+        <!--width: 600px;-->
+        <!--height: 300px;-->
+        <!--border: 1px solid red;-->
+    <!--}-->
+<!--</style>-->
+
+
+
+<!--<div class="btn" id="feed">-->
+    <!--Feed-->
+<!--</div>-->
+
+<!--<div class="btn" id="profile">-->
+    <!--Profile-->
+<!--</div>-->
+
+<!--<div id="swap"></div>-->
 
 <script src="components/requirejs/require.js" data-main="config.js"></script>
 </body>

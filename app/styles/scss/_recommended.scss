@@ -1,0 +1,36 @@
+.recommended {
+
+  & .item-pic {
+    width: 50px;
+    height: 50px;
+    background: url('../img/photo.jpg');
+    background-size: cover;
+    @include radius($type: border-radius, $value: 2px);
+  }
+
+  & .item {
+    position: relative;
+    height: 65px;
+  }
+
+  & .item-body {
+    margin-left: 65px;
+
+    & a.link-to {
+      font-size: 14px;
+      color: $darkgray-dark;
+      display: inline-block;
+      &:hover {
+        color: $steel-blue;
+      }
+    }
+
+    & a.start-to {
+      position: absolute;
+      left: 65px;
+      bottom: 9px;
+      font-size: 13px;
+      color: $steel-blue;
+    }
+  }
+}

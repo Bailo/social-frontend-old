@@ -4,7 +4,10 @@ require.config({
     paths: {
         'jquery' : 'components/jquery/dist/jquery.min',
         'underscore' : 'components/underscore/underscore',
-        'backbone' : 'components/backbone/backbone'
+        'backbone' : 'components/backbone/backbone',
+        'doT': 'components/doT/doT.min'
+//        'text': 'components/text',
+//        'jst': 'components/jst'
     },
     
     shim: {
@@ -17,5 +20,10 @@ require.config({
             deps: ['jquery'],
             exports: '_'
         }
+
+//        'jst': {
+//            deps: ['text', 'underscore'],
+//            exports: 'jst'
+//        }
     }
 });

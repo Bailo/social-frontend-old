@@ -1,0 +1,45 @@
+@media screen and (max-width:440px) {
+  .list-msg li {
+    padding: 10px 0 0 0;
+    margin-top: 0;
+
+  }
+}
+
+@media screen and (max-width:768px) {
+  header {
+    padding: 0 10px;
+    & ul {
+      margin-left: 0 !important;
+    }
+    & .glyphicon-cell {
+      float: left;
+    }
+
+    & .item {
+      display: inline-block;
+    }
+  }
+
+  .left-side-bar {
+    display: none;
+  }
+
+  .page-body {
+    & li {
+      border-left: none !important;
+    }
+  }
+}
+
+@media screen and (max-width:992px) {
+  .right-side-bar {
+    display: none;
+  }
+}
+
+@media screen and (min-width:768px) {
+  header ul.navbar-nav {
+    display: none !important;
+  }
+}

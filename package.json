@@ -9,6 +9,7 @@
     "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-requirejs": "^0.4.4",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-dot-compiler": "^0.5.12",
     "load-grunt-tasks": "^3.0.0",
     "time-grunt": "^1.0.0"
   }

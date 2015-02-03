@@ -57,13 +57,23 @@ module.exports = function (grunt) {
                 files: [
                     '<%= appConfig.app %>/**/*.js',
                     '<%= appConfig.app %>/**/*.css',
-                    '<%= appConfig.app %>/**/*.html',
-
+                    '<%= appConfig.app %>/**/*.html'
 
                 ],
                 tasks: ['requirejs:dev']
             }
         },
+//
+//        dot: {
+//            dist: {
+//                options: {
+//                    variable : 'tmpl',
+//                    root     : '<%= appConfig.app %>'
+//                },
+//                src  : ['app/**/*.dot'],
+//                dest : '<%= appConfig.dist %>'
+//            }
+//        },
 
         requirejs: {
             dev: {
@@ -113,10 +123,10 @@ module.exports = function (grunt) {
             dist: ['<%= appConfig.dist %>/*']
         }
     });
-
     grunt.registerTask('serve', [
         'clean:dist',
         'copy:dist',
+//        'dot:dist',
         'requirejs:dev',
         'connect:livereload',
         'watch'
@@ -133,6 +143,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:dist',
             'copy:dist',
+//            'dot:dist',
             'requirejs:dev',
             'connect:livereload',
             'watch'

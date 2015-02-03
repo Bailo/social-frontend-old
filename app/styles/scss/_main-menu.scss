@@ -1,0 +1,15 @@
+@import "current-user-label";
+
+.main-menu {
+  padding-left: 0 !important;
+
+  & ul {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  & ul > li.separate {
+    border-top: 1px solid #333333;
+    height: 10px;
+  }
+}

@@ -1,0 +1,23 @@
+.current-user-label{
+  height: 70px;
+
+  & .user-pic {
+    width: 64px;
+    height: 64px;
+    background: url("../img/photo-big.jpg") no-repeat;
+    background-size: cover;
+    @include radius($type: border-radius, $value: 3px);
+
+  }
+
+  & .user-body {
+    margin-left: 77px;
+
+    & h4 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+
+}

@@ -20,10 +20,10 @@ define([
          * @returns {*} Backbone router
          */
         navigate: function (fragment, options) {
-            if (this.currentView) {
-                this.currentView.undelegateEvents();
-                this.currentView.remove();
-            }
+//            if (this.currentView) {
+//                this.currentView.undelegateEvents();
+//                this.currentView.remove();
+//            }
 
             Backbone.history.navigate(fragment, options);
 

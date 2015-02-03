@@ -1,0 +1,56 @@
+.blog-item {
+  margin-top: 20px;
+  padding-bottom: 10px;
+  overflow: hidden;
+  border-bottom: 1px solid #bbb;
+
+
+  &-pic {
+    width: 70px;
+    height: 70px;
+    background: url("../img/photo.jpg") no-repeat;
+    @include radius($type: border-radius, $value: 3px);
+    background-size: cover;
+    font-size: 80px;
+  }
+
+  &-body {
+    padding-left: 90px;
+    & .title {
+      color: $darkgray-dark;
+      font-weight: bold;
+    }
+    & .content {
+      padding-top: 10px;
+    }
+  }
+
+  &-footer {
+    padding-left: 50px;
+    & ul {
+      list-style-type: none;
+    }
+    & li {
+      padding: 3px 10px 3px 3px;
+      color: $ilike;
+      float: left;
+      cursor: pointer;
+      font-size: 12px;
+      &:first-child {
+        //        border-right: 1px solid #ededed;
+      }
+      &:hover {
+        background: #ededed;
+        @include radius($type: border-radius, $value: 3px);
+      }
+    }
+
+    & .count-like, & .count-repost{
+      font-weight: bold;
+      font-size: 12px;
+      color: $like;
+    }
+
+  }
+
+}
