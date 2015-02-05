@@ -56,11 +56,11 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= appConfig.app %>/**/*.js',
-                    '<%= appConfig.app %>/**/*.css',
+                    '<%= appConfig.app %>/**/*.{css, scss}',
                     '<%= appConfig.app %>/**/*.html'
 
                 ],
-                tasks: ['requirejs:dev']
+                tasks: ['requirejs:dev', 'css']
             }
         },
 //
@@ -74,6 +74,32 @@ module.exports = function (grunt) {
 //                dest : '<%= appConfig.dist %>'
 //            }
 //        },
+
+        sass: {
+            dist: {
+                options: {
+                    style: 'compressed',
+                    preserveLicenseComments: false,
+//                    generateSourceMaps: true
+                },
+
+                files: [{
+                    expand: true,
+                    cwd: '<%= appConfig.app %>/styles/scss',
+                    src: ['*.scss'],
+                    dest: '<%= appConfig.dist %>',
+                    ext: '.css'
+                }]
+            }
+        },
+
+        css: {
+            files: ['<%= appConfig.app %>/**/*.{css, scss}'],
+            tasks: ['sass'],
+            options: {
+                spawn: false
+            }
+        },
 
         requirejs: {
             dev: {
@@ -110,8 +136,9 @@ module.exports = function (grunt) {
                         dest: '<%= appConfig.dist %>',
                         src: [
                             '*.{ico,txt}',
-                            'images/{,*/}*.{webp,gif}',
+                            'img/{,*/}*.{webp,gif}',
                             'components/**/*.{js,map,css}',
+                            'style/**/*.{js,map,css}',
                             '**/*.html'
                         ]
                     }
@@ -126,6 +153,7 @@ module.exports = function (grunt) {
     grunt.registerTask('serve', [
         'clean:dist',
         'copy:dist',
+        'sass:dist',
 //        'dot:dist',
         'requirejs:dev',
         'connect:livereload',
@@ -143,6 +171,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:dist',
             'copy:dist',
+            'sass:dist',
 //            'dot:dist',
             'requirejs:dev',
             'connect:livereload',
