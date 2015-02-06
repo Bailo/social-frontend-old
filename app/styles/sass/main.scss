@@ -1,0 +1,34 @@
+@import
+
+//GLOBAL PARAMS
+  "variables",
+  "mixins",
+  "../bootstrap-sass/assets/stylesheets/bootstrap",
+  "../Bootflat/bootflat/scss/bootflat",
+  "head",
+  "page-layout",
+  "main-menu",
+  "post-panel",
+  "blog-item",
+  "feed",
+  "recommended",
+  "profile-own",
+  "list-msg",
+  "list-files",
+  "media-queries";
+
+  body {
+    min-width: 324px;
+    overflow: scroll;
+  }
+
+  .show {
+    display: block;
+  }
+
+  .hide {
+    position: static;
+    display: none;
+  }
+
+

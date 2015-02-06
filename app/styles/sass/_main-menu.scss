@@ -1,0 +1,27 @@
+@import "current-user-label";
+
+.main-menu {
+  padding-left: 0 !important;
+
+  & ul {
+    margin-top: 10px;
+    padding-top: 10px;
+
+    & a {
+      font-size: $font-size-menu-item;
+      padding: 3px 10px !important;
+      color: $left-side-bar-color;
+
+    }
+
+    & .list-header {
+      font-size: $font-size-menu-header;
+    }
+  }
+
+  & ul > li.separate {
+    border-top: 1px solid #333333;
+    height: 10px;
+  }
+
+}

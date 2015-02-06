@@ -55,12 +55,35 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= appConfig.app %>/**/*.js',
-                    '<%= appConfig.app %>/**/*.{css, scss}',
-                    '<%= appConfig.app %>/**/*.html'
+                    '<%= appConfig.app %>/*.js',
+                    '<%= appConfig.app %>/*.{css, scss}',
+                    '<%= appConfig.app %>/*.html'
 
                 ],
-                tasks: ['requirejs:dev', 'css']
+
+                html: {
+                    files: ['index.html']
+                },
+
+//                tasks: ['requirejs:dev', 'sass:dist'],
+
+                sass: {
+                    options: {
+                        livereload: false
+                    },
+                    files: ['<%= appConfig.app %>/**/*.scss'],
+                    tasks: ['sass']
+
+                },
+
+                js: {
+                    files: '<%= appConfig.app %>/**/*.js', // следить за изменениями любых файлов с разширениями .coffee
+                    tasks: ['requirejs:dev'] // и запускать такую задачу при их изменении
+                },
+                css: {
+                    files: '<%= appConfig.dist %>/*.css', // следить за изменениями любых файлов с разширениями .sass
+                    tasks: [] // и запускать такую задачу при их изменении
+                }
             }
         },
 //
@@ -78,14 +101,14 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 options: {
-                    style: 'compressed',
-                    preserveLicenseComments: false,
+//                    style: 'compressed',
+//                    preserveLicenseComments: false,
 //                    generateSourceMaps: true
                 },
 
                 files: [{
                     expand: true,
-                    cwd: '<%= appConfig.app %>/styles/scss',
+                    cwd: '<%= appConfig.app %>/styles/sass',
                     src: ['*.scss'],
                     dest: '<%= appConfig.dist %>',
                     ext: '.css'
@@ -93,13 +116,13 @@ module.exports = function (grunt) {
             }
         },
 
-        css: {
-            files: ['<%= appConfig.app %>/**/*.{css, scss}'],
-            tasks: ['sass'],
-            options: {
-                spawn: false
-            }
-        },
+//        css: {
+//            files: ['<%= appConfig.app %>/styles/*.sass'],
+//            tasks: ['sass'],
+//            options: {
+//                spawn: false
+//            }
+//        },
 
         requirejs: {
             dev: {
@@ -136,7 +159,8 @@ module.exports = function (grunt) {
                         dest: '<%= appConfig.dist %>',
                         src: [
                             '*.{ico,txt}',
-                            'img/{,*/}*.{webp,gif}',
+                            'img/{,*/}*.{webp,gif,jpg}',
+                            'fonts/*.{eot,svg,ttf,woff}',
                             'components/**/*.{js,map,css}',
                             'style/**/*.{js,map,css}',
                             '**/*.html'

@@ -1,0 +1,54 @@
+.panel-main {
+
+
+  & ul > li a {
+    color: $navy-blue;
+  }
+
+  & ul > li.active a,
+  & ul > li:hover a {
+    background: $panel-top-bg-active !important;
+    @include radius($type: border-radius, $value: 3px !important);
+    color: $panel-top-font-color-active !important;
+
+  }
+
+  &-content {
+//    display: none;
+  }
+}
+
+.form-news {
+  overflow: hidden;
+
+  & textarea {
+    margin: 10px 0;
+    resize: none;
+  }
+
+  & .attach {
+    margin: 18px 0 0 15px;
+
+
+    & span {
+      font-size: 16px;
+//      color: $panel-form-attach;
+
+      &:hover {
+        cursor: pointer;
+        color: $panel-form-attach-hover;
+      }
+    }
+  }
+
+  button {
+    background-color: $panel-top-btn-bg;
+    border-color: $panel-top-btn-bg;
+    margin-top: 10px;
+    &:hover {
+      background-color: $panel-top-btn-bg-hover;
+      border-color: $panel-top-btn-bg-hover;
+    }
+  }
+
+}

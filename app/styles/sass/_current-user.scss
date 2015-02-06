@@ -1,0 +1,20 @@
+.current-user {
+  height: 70px;
+
+  & .user-pic {
+    width: 64px;
+    height: 64px;
+    background-size: cover;
+  }
+
+  & .user-body {
+    margin-left: 77px;
+
+    & h4 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+  }
+
+
+}

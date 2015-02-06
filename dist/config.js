@@ -3027,118 +3027,6 @@
 
 }));
 
-/* Laura Doktorova https://github.com/olado/doT */
-(function(){function o(){var a={"&":"&#38;","<":"&#60;",">":"&#62;",'"':"&#34;","'":"&#39;","/":"&#47;"},b=/&(?!#?\w+;)|<|>|"|'|\//g;return function(){return this?this.replace(b,function(c){return a[c]||c}):this}}function p(a,b,c){return(typeof b==="string"?b:b.toString()).replace(a.define||i,function(l,e,f,g){if(e.indexOf("def.")===0)e=e.substring(4);if(!(e in c))if(f===":"){a.defineParams&&g.replace(a.defineParams,function(n,h,d){c[e]={arg:h,text:d}});e in c||(c[e]=g)}else(new Function("def","def['"+
-e+"']="+g))(c);return""}).replace(a.use||i,function(l,e){if(a.useParams)e=e.replace(a.useParams,function(g,n,h,d){if(c[h]&&c[h].arg&&d){g=(h+":"+d).replace(/'|\\/g,"_");c.__exp=c.__exp||{};c.__exp[g]=c[h].text.replace(RegExp("(^|[^\\w$])"+c[h].arg+"([^\\w$])","g"),"$1"+d+"$2");return n+"def.__exp['"+g+"']"}});var f=(new Function("def","return "+e))(c);return f?p(a,f,c):f})}function m(a){return a.replace(/\\('|\\)/g,"$1").replace(/[\r\t\n]/g," ")}var j={version:"1.0.1",templateSettings:{evaluate:/\{\{([\s\S]+?(\}?)+)\}\}/g,
-interpolate:/\{\{=([\s\S]+?)\}\}/g,encode:/\{\{!([\s\S]+?)\}\}/g,use:/\{\{#([\s\S]+?)\}\}/g,useParams:/(^|[^\w$])def(?:\.|\[[\'\"])([\w$\.]+)(?:[\'\"]\])?\s*\:\s*([\w$\.]+|\"[^\"]+\"|\'[^\']+\'|\{[^\}]+\})/g,define:/\{\{##\s*([\w\.$]+)\s*(\:|=)([\s\S]+?)#\}\}/g,defineParams:/^\s*([\w$]+):([\s\S]+)/,conditional:/\{\{\?(\?)?\s*([\s\S]*?)\s*\}\}/g,iterate:/\{\{~\s*(?:\}\}|([\s\S]+?)\s*\:\s*([\w$]+)\s*(?:\:\s*([\w$]+))?\s*\}\})/g,varname:"it",strip:true,append:true,selfcontained:false},template:undefined,
-compile:undefined},q;if(typeof module!=="undefined"&&module.exports)module.exports=j;else if(typeof define==="function"&&define.amd)define('doT',[],function(){return j});else{q=function(){return this||(0,eval)("this")}();q.doT=j}String.prototype.encodeHTML=o();var r={append:{start:"'+(",end:")+'",endencode:"||'').toString().encodeHTML()+'"},split:{start:"';out+=(",end:");out+='",endencode:"||'').toString().encodeHTML();out+='"}},i=/$^/;j.template=function(a,b,c){b=b||j.templateSettings;var l=b.append?r.append:
-r.split,e,f=0,g;a=b.use||b.define?p(b,a,c||{}):a;a=("var out='"+(b.strip?a.replace(/(^|\r|\n)\t* +| +\t*(\r|\n|$)/g," ").replace(/\r|\n|\t|\/\*[\s\S]*?\*\//g,""):a).replace(/'|\\/g,"\\$&").replace(b.interpolate||i,function(h,d){return l.start+m(d)+l.end}).replace(b.encode||i,function(h,d){e=true;return l.start+m(d)+l.endencode}).replace(b.conditional||i,function(h,d,k){return d?k?"';}else if("+m(k)+"){out+='":"';}else{out+='":k?"';if("+m(k)+"){out+='":"';}out+='"}).replace(b.iterate||i,function(h,
-d,k,s){if(!d)return"';} } out+='";f+=1;g=s||"i"+f;d=m(d);return"';var arr"+f+"="+d+";if(arr"+f+"){var "+k+","+g+"=-1,l"+f+"=arr"+f+".length-1;while("+g+"<l"+f+"){"+k+"=arr"+f+"["+g+"+=1];out+='"}).replace(b.evaluate||i,function(h,d){return"';"+m(d)+"out+='"})+"';return out;").replace(/\n/g,"\\n").replace(/\t/g,"\\t").replace(/\r/g,"\\r").replace(/(\s|;|\}|^|\{)out\+='';/g,"$1").replace(/\+''/g,"").replace(/(\s|;|\}|^|\{)out\+=''\+/g,"$1out+=");if(e&&b.selfcontained)a="String.prototype.encodeHTML=("+
-o.toString()+"());"+a;try{return new Function(b.varname,a)}catch(n){typeof console!=="undefined"&&console.log("Could not create a template function: "+a);throw n;}};j.compile=function(a,b){return j.template(a,null,b)}})();
-
-define('modules/static/feed.view',[
-    'backbone',
-    'doT'
-//    'text!../templates/header'
-], function(Backbone, doT) {
-
-    /**
-     * Feed View
-     */
-    return Backbone.View.extend({
-        el: '#swap',
-        template: doT.template('<h1>Feed</h1>'),
-
-        /**
-         * Initialization function
-         */
-        initialize: function() {
-            console.log('feed init')
-        },
-
-        /**
-         * Render
-         */
-        render: function () {
-            this.$el.html(this.template)
-            console.log('feed render')
-        }
-    });
-});
-define('modules/static/profile.view',[
-    'backbone',
-    'doT'
-], function(Backbone, doT) {
-
-    /**
-     * Profile View
-     */
-    return Backbone.View.extend({
-        el: '#swap',
-        template: doT.template('<h1>Profile</h1>'),
-        /**
-         * Initialization function
-         */
-        initialize: function() {
-            console.log('profile init');
-        },
-
-        /**
-         * Render
-         */
-
-        render: function () {
-            this.$el.html(this.template);
-            console.log('profile render');
-        }
-    });
-});
-define('router',[
-    'backbone',
-    'modules/static/feed.view',
-    'modules/static/profile.view'
-], function(Backbone, FeedView, ProfileView) {
-
-    /**
-     * Router
-     */
-    return Backbone.Router.extend({
-        routes: {
-            '' : 'feed',
-            'profile': 'profile'
-        },
-
-        /**
-         * Redefined navigate function
-         * @param fragment {Object}
-         * @param options {Object}
-         * @returns {*} Backbone router
-         */
-        navigate: function (fragment, options) {
-//            if (this.currentView) {
-//                this.currentView.undelegateEvents();
-//                this.currentView.remove();
-//            }
-
-            Backbone.history.navigate(fragment, options);
-
-            return this;
-        },
-
-        /**
-         * ROUTES:
-         */
-        feed: function() {
-            this.currentView = new FeedView();
-            this.currentView.render();
-        },
-
-        profile: function() {
-            this.currentView = new ProfileView();
-            this.currentView.render();
-        }
-    });
-});
 /**
  * @license RequireJS text 2.0.13+ Copyright (c) 2010-2014, The Dojo Foundation All Rights Reserved.
  * Available via the MIT or new BSD license.
@@ -3531,13 +3419,185 @@ define('text',['module'], function (module) {
     return text;
 });
 
-define('text!modules/static/templates/header.dot',[],function () { return '<h1>HEADRE</h1>\n';});
+define('text!modules/static/templates/feed.html',[],function () { return '<!-- start main panel-->\n\n<div class="panel panel-normal post-panel">\n    <ul id="myTab1" class="nav nav-tabs nav-justified panel-heading">\n        <!--<li class="input-lbl">-->\n        <input type="text" class="form-control" id="post-input-lbl" placeholder="Что нового, дружище?"/>\n        <!--</li>-->\n        <li class="active"><a href="#post-news" data-toggle="tab"><span\n                class="glyphicon glyphicon-bullhorn"></span> Новость</a></li>\n        <li><a href="#post-event" data-toggle="tab"><span\n                class="glyphicon glyphicon-calendar"></span> События</a></li>\n        <li><a href="#post-quiz" data-toggle="tab">\n            <span class="glyphicon glyphicon-stats"></span> Опрос</a></li>\n        <li><a href="#post-thx" data-toggle="tab"><span\n                class="glyphicon glyphicon-thumbs-up"></span> Спасибо</a></li>\n\n\n    </ul>\n    <div id="myTabContent" class="tab-content post-panel-content">\n        <div class="tab-pane fade active in" id="post-news">\n            <form action="" role="form" class="post-news-form">\n                <textarea class="form-control" rows="3" placeholder="Над чем работаете?"\n                          id="post-textarea"></textarea>\n                <input class="form-control" placeholder="Кого уведомить..">\n                <button type="button" class="btn pull-left">Отправить</button>\n                <div class="form-group attach pull-left">\n                    <!-- must be inputs tags-->\n                    <span class="glyphicon glyphicon-paperclip"></span>\n                    <span class="glyphicon glyphicon-camera"></span>\n                </div>\n            </form>\n\n        </div>\n        <div class="tab-pane fade" id="post-event">\n            <p>Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>\n        </div>\n        <div class="tab-pane fade" id="post-quiz">\n            <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>\n        </div>\n        <div class="tab-pane fade" id="post-thx">\n            <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche ...</p>\n        </div>\n    </div>\n</div>\n\n\n<ul class="feed">\n    <li class="blog-item">\n        <div class="blog-item-pic pull-left">\n            <!-- If server side give correct photo with need size - after this must be tag IMG\n                 Now it\'s background in style -->\n        </div>\n        <div class="blog-item-body">\n            <a href="#" class="title">Александр Кашменский</a>\n            <p class="content">\n                Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate?\n            </p>\n        </div>\n        <div class="blog-item-footer">\n            <ul>\n                <li>\n                    <span class="count-like">12</span>\n                    <span class="glyphicon glyphicon-heart like"></span>\n                    Нравится\n                </li>\n                <li>\n                    <span class="count-repost">7</span>\n                    <span class="glyphicon glyphicon-bullhorn"></span>\n                    Поделиться\n                </li>\n            </ul>\n\n\n        </div>\n    </li>\n\n    <li class="blog-item">\n        <div class="blog-item-pic pull-left">\n            <!-- If server side give correct photo with need size - after this must be tag IMG\n                 Now it\'s background in style -->\n        </div>\n        <div class="blog-item-body">\n            <a href="#" class="title">Александр Кашменский</a>\n            <p class="content">\n                @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n            </p>\n        </div>\n        <div class="blog-item-footer">\n            <ul>\n                <li>\n                    <span class="count-like">3</span>\n                    <span class="glyphicon glyphicon-heart like"></span>\n                    Нравится\n                </li>\n                <li>\n                    <span class="count-repost">2</span>\n                    <span class="glyphicon glyphicon-bullhorn"></span>\n                    Поделиться\n                </li>\n            </ul>\n        </div>\n    </li>\n\n    <li class="blog-item">\n        <div class="blog-item-pic pull-left">\n            <!-- If server side give correct photo with need size - after this must be tag IMG\n                 Now it\'s background in style -->\n        </div>\n        <div class="blog-item-body">\n            <a href="#" class="title">Александр Кашменский</a>\n            <p class="content">\n                @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n            </p>\n        </div>\n        <div class="blog-item-footer">\n            <ul>\n                <li>\n                    <span class="count-like">44</span>\n                    <span class="glyphicon glyphicon-heart like"></span>\n                    Нравится\n                </li>\n                <li>\n                    <span class="count-repost"></span>\n                    <span class="glyphicon glyphicon-bullhorn"></span>\n                    Поделиться\n                </li>\n            </ul>\n        </div>\n    </li>\n\n</ul>';});
 
-define('modules/app/app.view',[
+define('modules/static/feed.view',[
     'backbone',
-    'doT',
-    'text!../static/templates/header.dot'
-], function(Backbone, doT, Header) {
+//    'doT'
+    'text!./templates/feed.html'
+], function(Backbone, FeedTemplate) {
+
+    /**
+     * Feed View
+     */
+    return Backbone.View.extend({
+        el: '#central-swap',
+//        template: doT.template('<h1>Feed</h1>'),
+        template: FeedTemplate,
+        /**
+         * Initialization function
+         */
+        initialize: function() {
+            console.log('feed init');
+        },
+
+//        remove: function() {
+//            this.undelegateEvents();
+//            this.remove();
+//        },
+
+        /**
+         * Render
+         */
+        render: function () {
+            this.$el.html(this.template)
+            console.log('feed render')
+        }
+    });
+});
+
+define('text!modules/static/templates/profile.html',[],function () { return '<div class="profile-own">\n\n    <div class="user-info">\n        <div class="user-pic"></div>\n        <div class="user-description">\n            <div class="user-name">\n                Чарли Харпер\n            </div>\n            <div class="user-position">\n                Sofrware Engineer\n            </div>\n            <div class="user-status">\n                Online\n            </div>\n\n        </div>\n\n\n\n\n    </div>\n    <div class="panel panel-default user-details">\n        <div class="panel-heading" id="more-info">Показать подробную информацию</div>\n        <table class="table table-details" id="table-details">\n            <tr>\n                <td>Дата рождения:</td>\n                <td><a href="#">03.08.1978</a></td>\n\n            </tr>\n            <tr>\n                <td>Город:</td>\n                <td><a href="#">Киев</a></td>\n            </tr>\n            <tr>\n                <td>Образование:</td>\n                <td><a href="#">Донецкий Национальный Технический Университет, 2012</a></td>\n            </tr>\n        </table>\n\n\n    </div>\n\n    <div class="panel panel-normal post-panel">\n        <ul id="myTab1" class="nav nav-tabs nav-justified panel-heading">\n            <!--<li class="input-lbl">-->\n            <input type="text" class="form-control" id="post-input-lbl" placeholder="Что нового, дружище?"/>\n            <!--</li>-->\n            <li class="active"><a href="#post-news" data-toggle="tab"><span\n                    class="glyphicon glyphicon-bullhorn"></span> Новость</a></li>\n            <li><a href="#post-event" data-toggle="tab"><span\n                    class="glyphicon glyphicon-calendar"></span> Мероприятия</a></li>\n            <li><a href="#post-quiz" data-toggle="tab">\n                <span class="glyphicon glyphicon-stats"></span> Опрос</a></li>\n            <li><a href="#post-thx" data-toggle="tab"><span\n                    class="glyphicon glyphicon-thumbs-up"></span> Спасибо</a></li>\n\n\n        </ul>\n        <div id="myTabContent" class="tab-content post-panel-content">\n            <div class="tab-pane fade active in" id="post-news">\n                <form action="" role="form" class="post-news-form">\n                    <textarea class="form-control" rows="3" placeholder="Над чем работаете?"\n                              id="post-textarea"></textarea>\n                    <input class="form-control" placeholder="Кого уведомить..">\n                    <button type="button" class="btn pull-left">Отправить</button>\n                    <div class="form-group attach pull-left">\n                        <!-- must be inputs tags-->\n                        <span class="glyphicon glyphicon-paperclip"></span>\n                        <span class="glyphicon glyphicon-camera"></span>\n                    </div>\n                </form>\n\n            </div>\n            <div class="tab-pane fade" id="post-event">\n                <p>Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>\n            </div>\n            <div class="tab-pane fade" id="post-quiz">\n                <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>\n            </div>\n            <div class="tab-pane fade" id="post-thx">\n                <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche ...</p>\n            </div>\n        </div>\n    </div>\n\n\n    <ul class="feed">\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate?\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">12</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost">7</span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n\n\n            </div>\n        </li>\n\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">3</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost">2</span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n            </div>\n        </li>\n\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">44</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost"></span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n            </div>\n        </li>\n\n    </ul>\n</div>';});
+
+define('modules/static/profile.view',[
+    'backbone',
+//    'doT'
+    'text!./templates/profile.html'
+], function(Backbone, ProfileTemplate) {
+
+    /**
+     * Profile View
+     */
+    return Backbone.View.extend({
+        el: '#central-swap',
+        template: ProfileTemplate,
+
+        events: {
+          'click #more-info': 'toggleInfo'
+        },
+
+        /**
+         * Initialization function
+         */
+        initialize: function() {
+            console.log('profile init');
+        },
+
+        toggleInfo: function() {
+            $('#table-details').toggleClass('show');
+        },
+
+//        remove: function() {
+//            this.undelegateEvents();
+//            this.remove();
+//        },
+
+
+
+        /**
+         * Render
+         */
+
+        render: function () {
+            this.$el.html(this.template);
+            console.log('profile render');
+        }
+    });
+});
+
+define('text!modules/static/templates/dialogs.html',[],function () { return '<ul class="list-msg">\n    <li>\n        <a href="#">\n            <div class="item-pic ph1"></div>\n            <div class="item-description">\n                <a href="#" class="item-user">Ярослав Сапроненко</a>\n                <p class="item-time">13:14:55</p>\n            </div>\n\n            <div class="item-body">До встречи тогда</div>\n        </a>\n    </li>\n\n    <li>\n        <a href="#">\n            <div class="item-pic ph2"></div>\n            <div class="item-description">\n                <a href="#" class="item-user">Елена Голкова</a>\n                <p class="item-time">13:14:55</p>\n            </div>\n\n            <div class="item-body">Не забудь на субботу проектор</div>\n        </a>\n    </li>\n\n    <li>\n        <a href="#">\n            <div class="item-pic ph3"></div>\n            <div class="item-description">\n                <a href="#" class="item-user">Игорь Бук</a>\n                <p class="item-time">21:23:43</p>\n            </div>\n\n            <div class="item-body">)))))</div>\n        </a>\n    </li>\n\n</ul>';});
+
+define('modules/static/dialogs.view',[
+    'backbone',
+//    'doT'
+    'text!./templates/dialogs.html'
+], function(Backbone, DialogsTemplate) {
+
+    /**
+     * Profile View
+     */
+    return Backbone.View.extend({
+        el: '#central-swap',
+        template: DialogsTemplate,
+        /**
+         * Initialization function
+         */
+        initialize: function() {
+            console.log('dialogs init');
+        },
+
+        /**
+         * Render
+         */
+
+//        remove: function() {
+//            this.undelegateEvents();
+//            this.remove();
+//        },
+
+        render: function () {
+            this.$el.html(this.template);
+            console.log('dialogs render');
+        }
+    });
+});
+define('router',[
+    'backbone',
+    'modules/static/feed.view',
+    'modules/static/profile.view',
+    'modules/static/dialogs.view'
+], function(Backbone, FeedView, ProfileView, DialogsView) {
+
+    /**
+     * Router
+     */
+    return Backbone.Router.extend({
+        routes: {
+            '' : 'feed',
+            'profile': 'profile',
+            'dialogs': 'dialogs'
+
+        },
+
+        /**
+         * Redefined navigate function
+         * @param fragment {Object}
+         * @param options {Object}
+         * @returns {*} Backbone router
+         */
+        navigate: function (fragment, options) {
+//            if (this.currentView) {
+//                this.currentView.undelegateEvents();
+//                this.currentView.remove();
+//            }
+
+            Backbone.history.navigate(fragment, options);
+
+            return this;
+        },
+
+        /**
+         * ROUTES:
+         */
+        feed: function() {
+            this.currentView = new FeedView();
+            this.currentView.render();
+        },
+
+        profile: function() {
+            this.currentView = new ProfileView();
+            this.currentView.render();
+        },
+
+        dialogs: function() {
+            this.currentView = new DialogsView();
+            this.currentView.render();
+        }
+    });
+});
+define('modules/app/app.view',[
+    'backbone'
+//    'doT',
+], function(Backbone) {
 
     /**
      * Application View
@@ -3545,15 +3605,16 @@ define('modules/app/app.view',[
     return Backbone.View.extend({
 
         el: 'body',
-        template: doT.template(Header),
+//        template: doT.template(Header),
 
         /**
          * Events
          */
 
         events: {
-            'click #profile' : 'getProfile',
-            'click #feed'    : 'getFeed'
+            'click #href-profile' : 'getProfile',
+            'click #href-feed'    : 'getFeed',
+            'click #href-dialogs'    : 'getDialogs'
         },
 
         /**
@@ -3568,6 +3629,10 @@ define('modules/app/app.view',[
             window.app.router.navigate('', {trigger: true, replace: true});
         },
 
+        getDialogs: function() {
+            window.app.router.navigate('dialogs', {trigger: true, replace: true});
+        },
+
         /**
          * Initialization function
          */
@@ -3576,10 +3641,7 @@ define('modules/app/app.view',[
             console.log('app init')
         },
 
-        data:  {
-                'name' : 'nik',
-                'age'  : 23
-        },
+
 
         render: function(){
 //            this.$el.html(this.template());

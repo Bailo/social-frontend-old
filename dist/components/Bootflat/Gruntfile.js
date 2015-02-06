@@ -53,7 +53,7 @@ module.exports = function(grunt) {
     },
     csscomb: {
       options: {
-        config: '<%= meta.defaultPath %>/scss/.csscomb.json'
+        config: '<%= meta.defaultPath %>/sass/.csscomb.json'
       },
       dist: {
         files: {
@@ -80,7 +80,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          '<%= meta.defaultPath %>/css/<%= pkg.name %>.css': '<%= meta.defaultPath %>/scss/<%= pkg.name %>.scss'
+          '<%= meta.defaultPath %>/css/<%= pkg.name %>.css': '<%= meta.defaultPath %>/sass/<%= pkg.name %>.sass'
         },
         options: {
           banner: '<%= banner %>',
@@ -91,7 +91,7 @@ module.exports = function(grunt) {
     },
     csslint: {
       options: {
-        csslintrc: '<%= meta.defaultPath %>/scss/.csslintrc'
+        csslintrc: '<%= meta.defaultPath %>/sass/.csslintrc'
       },
       src: [
           '<%= meta.defaultPath %>/css/<%= pkg.name %>.css'

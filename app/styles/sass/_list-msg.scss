@@ -1,0 +1,74 @@
+.list-msg {
+  list-style-type: none;
+  padding-left: 0;
+
+  & li {
+    height: 82px;
+    padding: 10px;
+    border-top: 1px solid $lightgray-dark;
+    border-bottom: 1px solid $white;
+    border-left: 1px solid $white;
+    border-right: 1px solid $white;
+    &:hover {
+      border: 1px solid $lightgray-dark;
+      background: $lightgray-dark;
+      cursor: pointer;
+    }
+
+    & .ph1 {
+      background: url("./img/photo.jpg") no-repeat;
+    }
+
+    & .ph2 {
+      background: url("../app/img/photo-2.jpg");
+    }
+
+    & .ph3 {
+      background: url("../app/img/photo-3.jpg");
+    }
+
+    & .item-pic {
+      width: 60px;
+      height: 60px;
+      @include radius($type: border-radius, $value: 3px);
+      background-size: cover;
+      float: left;
+    }
+
+
+
+    & .item-description {
+      float: left;
+      color: $darkgray-dark;
+      margin-left: 15px;
+      margin-top: 10px;
+      width: 180px;
+
+      & .item-user {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-top: 5px;
+        margin-bottom: 0;
+        color: $steel-blue;
+        font-size: $font-size-user;
+        &:hover {
+          text-decoration: underline;
+        }
+
+      }
+      & .item-time {
+        font-size: 11px;
+        color: $darkgray-dark;
+      }
+    }
+
+    & .item-body {
+      color: $darkgray-light;
+      margin-top: 10px;
+      font-size: $font-size-item-msg-body;
+    }
+  }
+
+
+}

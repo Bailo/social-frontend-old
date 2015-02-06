@@ -1,8 +1,7 @@
 define([
-    'backbone',
-    'doT',
-    'text!../static/templates/header.dot'
-], function(Backbone, doT, Header) {
+    'backbone'
+//    'doT',
+], function(Backbone) {
 
     /**
      * Application View
@@ -10,15 +9,16 @@ define([
     return Backbone.View.extend({
 
         el: 'body',
-        template: doT.template(Header),
+//        template: doT.template(Header),
 
         /**
          * Events
          */
 
         events: {
-            'click #profile' : 'getProfile',
-            'click #feed'    : 'getFeed'
+            'click #href-profile' : 'getProfile',
+            'click #href-feed'    : 'getFeed',
+            'click #href-dialogs'    : 'getDialogs'
         },
 
         /**
@@ -33,6 +33,10 @@ define([
             window.app.router.navigate('', {trigger: true, replace: true});
         },
 
+        getDialogs: function() {
+            window.app.router.navigate('dialogs', {trigger: true, replace: true});
+        },
+
         /**
          * Initialization function
          */
@@ -41,10 +45,7 @@ define([
             console.log('app init')
         },
 
-        data:  {
-                'name' : 'nik',
-                'age'  : 23
-        },
+
 
         render: function(){
 //            this.$el.html(this.template());
