@@ -1,9 +1,9 @@
 define([
     'backbone',
     'modules/static/feed.view',
-    'modules/static/profile.view',
+    'modules/own_profile/own_profile.view',
     'modules/static/dialogs.view'
-], function(Backbone, FeedView, ProfileView, DialogsView) {
+], function(Backbone, FeedView, OwnProfileView, DialogsView) {
 
     /**
      * Router
@@ -42,7 +42,7 @@ define([
         },
 
         profile: function() {
-            this.currentView = new ProfileView();
+            this.currentView = new OwnProfileView();
             this.currentView.render();
         },
 

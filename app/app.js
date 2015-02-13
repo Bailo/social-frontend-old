@@ -3,7 +3,7 @@ require([
     'underscore',
     'backbone',
     'router',
-    'modules/app/app.view'
+    'modules/app.view'
 ], function($, _, Backbone, Router, AppView) {
 
     window.app = {};

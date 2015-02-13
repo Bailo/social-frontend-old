@@ -7890,7 +7890,7 @@ header {
       background: #E6E9ED;
       cursor: pointer; }
     .list-msg li .ph1 {
-      background: url("../app/img/photo.jpg") no-repeat; }
+      background: url("./img/photo.jpg") no-repeat; }
     .list-msg li .ph2 {
       background: url("../app/img/photo-2.jpg"); }
     .list-msg li .ph3 {

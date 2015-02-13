@@ -3,7 +3,7 @@ require.config({
 
     paths: {
         'jquery' : 'components/jquery/dist/jquery.min',
-        'underscore' : 'components/underscore/underscore',
+        'underscore' : 'components/underscore/underscore-min',
         'backbone' : 'components/backbone/backbone',
         'doT': 'components/doT/doT.min',
         'bootstrap': 'styles/bootstrap-sass/assets/javascript/bootstrap.min',
@@ -29,5 +29,7 @@ require.config({
 //            deps: ['text', 'underscore'],
 //            exports: 'jst'
 //        }
+
     }
 });
+

@@ -1,7 +1,7 @@
 define([
     'backbone',
 //    'doT'
-    'text!./templates/profile.html'
+    'text!./templates/own_profile.html'
 ], function(Backbone, ProfileTemplate) {
 
     /**
@@ -19,7 +19,8 @@ define([
          * Initialization function
          */
         initialize: function() {
-            console.log('profile init');
+            console.log('own_profile init');
+
         },
 
         toggleInfo: function() {
@@ -28,7 +29,7 @@ define([
 
       remove: function(){
         Backbone.View.prototype.remove.apply(this, arguments);
-          console.log('profile remove')
+          console.log('own_profile remove')
       },
 
 
@@ -39,7 +40,7 @@ define([
 
         render: function () {
             this.$el.html(this.template);
-            console.log('profile render');
+            console.log('own_profile render');
         }
     });
 });

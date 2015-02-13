@@ -65,25 +65,25 @@ module.exports = function (grunt) {
                     files: ['index.html']
                 },
 
-//                tasks: ['requirejs:dev', 'sass:dist'],
+                tasks: ['requirejs:dev', 'sass:dist']
 
-                sass: {
-                    options: {
-                        livereload: false
-                    },
-                    files: ['<%= appConfig.app %>/**/*.scss'],
-                    tasks: ['sass']
-
-                },
-
-                js: {
-                    files: '<%= appConfig.app %>/**/*.js', // следить за изменениями любых файлов с разширениями .coffee
-                    tasks: ['requirejs:dev'] // и запускать такую задачу при их изменении
-                },
-                css: {
-                    files: '<%= appConfig.dist %>/*.css', // следить за изменениями любых файлов с разширениями .sass
-                    tasks: [] // и запускать такую задачу при их изменении
-                }
+//                sass: {
+//                    options: {
+//                        livereload: false
+//                    },
+//                    files: ['<%= appConfig.app %>/**/*.scss'],
+//                    tasks: ['sass']
+//
+//                },
+//
+//                js: {
+//                    files: '<%= appConfig.app %>/**/*.js', // следить за изменениями любых файлов с разширениями .coffee
+//                    tasks: ['requirejs:dev'] // и запускать такую задачу при их изменении
+//                },
+//                css: {
+//                    files: '<%= appConfig.dist %>/*.css', // следить за изменениями любых файлов с разширениями .sass
+//                    tasks: [] // и запускать такую задачу при их изменении
+//                }
             }
         },
 //
