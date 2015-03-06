@@ -54,6 +54,10 @@
     }
 
     & .table-details {
+//      -webkit-transition: top 1s ease-out 0.5s;
+//      -moz-transition: top 1s ease-out 0.5s;
+//      -o-transition: top 1s ease-out 0.5s;
+//      transition: top 1s ease-out 0.5s;
       display: none;
     }
 

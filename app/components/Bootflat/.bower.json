@@ -1,5 +1,5 @@
 {
-  "name": "Bootflat",
+  "name": "bootflat",
   "version": "2.0.4",
   "homepage": "http://bootflat.github.io",
   "authors": [
@@ -49,6 +49,6 @@
   },
   "_source": "git://github.com/bootflat/bootflat.github.io.git",
   "_target": "~2.0.4",
-  "_originalSource": "Bootflat",
+  "_originalSource": "bootflat",
   "_direct": true
 }

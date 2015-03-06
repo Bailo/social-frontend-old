@@ -1,0 +1,85 @@
+.panel-post {
+  font-size: $panel-post-font-size !important;
+
+  & ul {
+    padding: 7px 15px;
+  }
+
+  & .nav-tabs > li {
+    border: none;
+  }
+
+  & ul > li a {
+    color: $navy-blue;
+    border: none;
+    padding: 5px;
+
+    &:hover,
+    &:focus {
+      background: $panel-top-bg-active !important;
+      @include radius($type: border-radius, $value: 3px !important);
+      color: $panel-top-font-color-active !important;
+    }
+  }
+
+  & ul li.active > a {
+    &,
+    &:hover,
+    &:focus {
+      cursor: default;
+      background: $panel-top-bg-active !important;
+      @include radius($type: border-radius, $value: 3px !important);
+      color: $panel-top-font-color-active !important;
+      border: none;
+    }
+  }
+
+  &-content {
+    padding: 10px;
+//    display: none;
+  }
+}
+
+#post-input-lbl {
+  display: none !important;
+}
+
+.post-news-form {
+  overflow: hidden;
+
+  & textarea {
+    font-size: $panel-post-font-size-placeholder;
+    margin: 10px 0;
+    resize: none;
+  }
+
+  & input {
+    font-size: $panel-post-font-size-input;
+  }
+
+  & .attach {
+    margin: 18px 0 0 15px;
+
+
+    & span.glyphicon {
+      font-size: $panel-post-size-glyph;
+
+      &:hover {
+        cursor: pointer;
+        color: $panel-form-attach-hover;
+      }
+    }
+  }
+
+  button {
+    background-color: $panel-top-btn-bg;
+    border-color: $panel-top-btn-bg;
+    margin-top: 10px;
+    font-size: $panel-post-font-size-btn;
+    &:hover {
+      background-color: $panel-top-btn-bg-hover;
+      border-color: $panel-top-btn-bg-hover;
+    }
+  }
+
+}

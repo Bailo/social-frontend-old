@@ -7724,16 +7724,16 @@ header {
     height: 10px; }
 
 .post-panel ul > li a {
-  color: #003171 !important;
-  display: none; }
+  color: #003171 !important; }
 .post-panel ul > li.active a, .post-panel ul > li:hover a, .post-panel ul > li:focus a {
   background: #003171 !important;
   -webkit-border-radius: 3px !important;
   -moz-border-radius: 3px !important;
   border-radius: 3px !important;
   color: #FFFFFF !important; }
-.post-panel-content {
-  display: none; }
+
+#post-input-lbl {
+  display: none !important; }
 
 .post-news-form {
   overflow: hidden; }
@@ -7890,11 +7890,11 @@ header {
       background: #E6E9ED;
       cursor: pointer; }
     .list-msg li .ph1 {
-      background: url("./img/photo.jpg") no-repeat; }
+      background: url("../img/photo.jpg") no-repeat; }
     .list-msg li .ph2 {
-      background: url("../app/img/photo-2.jpg"); }
+      background: url("../img/photo-2.jpg"); }
     .list-msg li .ph3 {
-      background: url("../app/img/photo-3.jpg"); }
+      background: url("../img/photo-3.jpg"); }
     .list-msg li .item-pic {
       width: 60px;
       height: 60px;
@@ -7935,6 +7935,34 @@ header {
       color: #4B77BE; }
       .list-files li a:hover {
         text-decoration: underline; }
+
+.list-groups ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+  .list-groups ul li {
+    padding: 20px 0;
+    margin: 0;
+    overflow: hidden;
+    border-bottom: 1px solid #E6E9ED; }
+    .list-groups ul li .group-lbl {
+      float: left; }
+      .list-groups ul li .group-lbl img {
+        width: 140px;
+        height: 140px; }
+    .list-groups ul li .group-hdr {
+      float: left;
+      margin-left: 30px; }
+      .list-groups ul li .group-hdr a {
+        color: #003171;
+        font-size: 20px; }
+    .list-groups ul li .who-invite {
+      float: left;
+      margin-left: 30px; }
+      .list-groups ul li .who-invite button {
+        float: left;
+        width: 100px;
+        margin: 10px 10px 0 0; }
 
 @media screen and (max-width: 440px) {
   .list-msg li {

@@ -19,6 +19,8 @@ module.exports = function (grunt) {
     };
 
     grunt.initConfig({
+
+        pkg: grunt.file.readJSON('package.json'),
         appConfig: appConfig,
 
         /**
@@ -55,74 +57,35 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= appConfig.app %>/*.js',
-                    '<%= appConfig.app %>/*.{css, scss}',
-                    '<%= appConfig.app %>/*.html'
+                    '<%= appConfig.app %>/**/*.js',
+                    '<%= appConfig.app %>/styles/**/*.scss'
+//                    '<%= appConfig.app %>/*.html'
 
                 ],
 
-                html: {
-                    files: ['index.html']
-                },
+//                html: {
+//                    files: ['index.html']
+//                },
 
                 tasks: ['requirejs:dev', 'sass:dist']
 
-//                sass: {
-//                    options: {
-//                        livereload: false
-//                    },
-//                    files: ['<%= appConfig.app %>/**/*.scss'],
-//                    tasks: ['sass']
-//
-//                },
-//
-//                js: {
-//                    files: '<%= appConfig.app %>/**/*.js', // следить за изменениями любых файлов с разширениями .coffee
-//                    tasks: ['requirejs:dev'] // и запускать такую задачу при их изменении
-//                },
-//                css: {
-//                    files: '<%= appConfig.dist %>/*.css', // следить за изменениями любых файлов с разширениями .sass
-//                    tasks: [] // и запускать такую задачу при их изменении
-//                }
             }
         },
-//
-//        dot: {
-//            dist: {
-//                options: {
-//                    variable : 'tmpl',
-//                    root     : '<%= appConfig.app %>'
-//                },
-//                src  : ['app/**/*.dot'],
-//                dest : '<%= appConfig.dist %>'
-//            }
-//        },
 
         sass: {
             dist: {
                 options: {
 //                    style: 'compressed',
-//                    preserveLicenseComments: false,
-//                    generateSourceMaps: true
+                    preserveLicenseComments: false,
+                    sourceMap: true
                 },
 
-                files: [{
-                    expand: true,
-                    cwd: '<%= appConfig.app %>/styles/sass',
-                    src: ['*.scss'],
-                    dest: '<%= appConfig.dist %>',
-                    ext: '.css'
-                }]
+                files: {
+                    '<%= appConfig.dist %>/styles/main.css' : '<%= appConfig.app %>/styles/sass/main.scss'
+                }
             }
         },
 
-//        css: {
-//            files: ['<%= appConfig.app %>/styles/*.sass'],
-//            tasks: ['sass'],
-//            options: {
-//                spawn: false
-//            }
-//        },
 
         requirejs: {
             dev: {
@@ -130,7 +93,7 @@ module.exports = function (grunt) {
                     name: "app",
                     baseUrl: './app',
                     mainConfigFile: './app/config.js',
-                    out: './dist/config.js',
+                    out: './dist/js/config.js',
                     findNestedDependecies: true,
                     optimize: 'none', // if you need minification -- uglify2
                     preserveLicenseComments: false,
@@ -142,7 +105,7 @@ module.exports = function (grunt) {
                     name: "app",
                     baseUrl: './app',
                     mainConfigFile: './app/config.js',
-                    out: './dist/config.js',
+                    out: './dist/js/config.min.js',
                     findNestedDependecies: true,
                     optimize: 'uglify2',
                     generateSourceMaps: false
@@ -159,10 +122,10 @@ module.exports = function (grunt) {
                         dest: '<%= appConfig.dist %>',
                         src: [
                             '*.{ico,txt}',
-                            'img/{,*/}*.{webp,gif,jpg}',
-                            'fonts/*.{eot,svg,ttf,woff}',
-                            'components/**/*.{js,map,css}',
-                            'style/**/*.{js,map,css}',
+                            'img/{,*/}*.{webp,gif,jpg,png}',
+                            'fonts/**/*.{eot,svg,ttf,woff,woff2}',
+                            'components/**/*.{js,map}',
+                            'style/**/*.{map,css}',
                             '**/*.html'
                         ]
                     }
@@ -178,7 +141,6 @@ module.exports = function (grunt) {
         'clean:dist',
         'copy:dist',
         'sass:dist',
-//        'dot:dist',
         'requirejs:dev',
         'connect:livereload',
         'watch'
@@ -196,7 +158,6 @@ module.exports = function (grunt) {
             'clean:dist',
             'copy:dist',
             'sass:dist',
-//            'dot:dist',
             'requirejs:dev',
             'connect:livereload',
             'watch'

@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Social Frontend</title>
-    <link rel="stylesheet" href="main.css"/>
-    <link rel="stylesheet" href="../app/styles/sass/main.css"/>
+    <link rel="stylesheet" href="styles/main.css"/>
+    <!--<link rel="stylesheet" href="../app/styles/sass/main.css"/>-->
+
 </head>
 <body>
 
@@ -72,7 +73,8 @@
             <li class="list-header">Полезная информация</li>
             <li class="separate"></li>
             <li><a href="#"><span class="glyphicon glyphicon-road"></span> С чего начать</a></li>
-            <li><a href="./files.html"><span class="glyphicon glyphicon-paperclip"></span> Файлы <span class="badge badge-default pull-right">7</span></a></li>
+            <li id="href-files"><a href="#files"><span class="glyphicon glyphicon-paperclip"></span> Файлы <span
+                    class="badge badge-default pull-right">7</span></a></li>
             <li><a href="#"><span class="glyphicon glyphicon-dashboard"></span> График работы</a></li>
         </ul>
 
@@ -84,22 +86,26 @@
             <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> Продажи</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> Маркетинг и PR</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-hand-right"></span> Банк идей</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-list"></span> Все группы</a></li>
+            <li id="href-groups"><a href="#groups"><span class="glyphicon glyphicon-list"></span> Все группы</a></li>
         </ul>
     </div>
 
-
-
-
 </aside>
+
+
+
+
 
 <section class="page-body col-lg-6 col-md-6 col-sm-8 col-xs-12" id="central-swap">
 
 
 </section>
 
+
+
+
 <aside class="right-side-bar col-lg-3 col-md-3">
-    <div class="panel panel-danger recommended">
+    <div class="panel panel-rec">
         <div class="panel-heading">
             <h3 class="panel-title">Рекомендуемые люди</h3>
         </div>
@@ -131,7 +137,7 @@
         </div>
     </div>
 
-    <div class="panel panel-danger recommended recommended-groups">
+    <div class="panel panel-rec recommended-groups">
         <div class="panel-heading">
             <h3 class="panel-title">Рекомендуемые группы</h3>
         </div>
@@ -165,7 +171,7 @@
 
 
 
-    <div class="panel panel-danger">
+    <div class="panel panel-rec">
         <div class="panel-heading">
             <h3 class="panel-title">Дни рождения коллег</h3>
         </div>
@@ -176,47 +182,11 @@
 
 
 
+<script src="components/requirejs/require.js" data-main="js/config.js"></script>
 
 
 
 
 
-
-<!--<style>-->
-    <!--.btn {-->
-        <!--width: 70px;-->
-        <!--height: 30px;-->
-        <!--color: #fff;-->
-        <!--background: #030;-->
-        <!--border-radius: 5px;-->
-        <!--padding: 10px;-->
-        <!--margin: 40px;-->
-        <!--cursor: pointer;-->
-    <!--}-->
-
-    <!--.btn:hover {-->
-        <!--background: #222;-->
-    <!--}-->
-
-    <!--#swap {-->
-        <!--width: 600px;-->
-        <!--height: 300px;-->
-        <!--border: 1px solid red;-->
-    <!--}-->
-<!--</style>-->
-
-
-
-<!--<div class="btn" id="feed">-->
-    <!--Feed-->
-<!--</div>-->
-
-<!--<div class="btn" id="own_profile">-->
-    <!--Profile-->
-<!--</div>-->
-
-<!--<div id="swap"></div>-->
-
-<script src="components/requirejs/require.js" data-main="config.js"></script>
 </body>
 </html>

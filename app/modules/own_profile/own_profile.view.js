@@ -2,33 +2,40 @@ define([
     'jquery',
     'underscore',
     'backbone',
-//    'doT',
+    'handlebars',
     '../own_profile/own_profile.model',
-    'text!../templates/own_profile.html'
-], function($,_,Backbone, OwnProfileModel, OwnProfileTemplate) {
+    'text!../templates/own_profile.hbs',
+    '../common/panel_post.view'
+], function($,_,Backbone, Handlebars, OwnProfileModel, OwnProfileTemplate, PanelPostView) {
 
     /**
      * Profile View
      */
     return Backbone.View.extend({
         el: '#central-swap',
-        template: OwnProfileTemplate,
+        template: Handlebars.compile(OwnProfileTemplate),
 
         events: {
             'click #more-info': 'toggleInfo'
         },
 
+
         /**
          * Initialization function
          */
+
         initialize: function() {
-            console.log('own_profile init');
+            console.log('Init OwnProfile');
+            this.panelpost = new PanelPostView();
             this.model = new OwnProfileModel();
-//            _.bindAll(this);
+
+            this.listenTo(this.model, 'change', this.render);
             this.model.fetch();
-            this.render();
-            this.model.on('change', this.render);
+
         },
+
+
+
 
         toggleInfo: function() {
             $('#table-details').toggleClass('show');
@@ -46,8 +53,12 @@ define([
          */
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
-            console.log('own_profile render');
+            this.$el.html(this.template({cur_user: this.model.toJSON()}));
+            this.panelpost.$el = this.$('#panel-post');
+            this.panelpost.render();
+            this.delegateEvents();
+
+            return this;
         }
     });
 });

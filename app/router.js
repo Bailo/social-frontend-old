@@ -1,18 +1,22 @@
 define([
     'backbone',
-    'modules/static/feed.view',
+    'modules/feed/feed.view',
     'modules/own_profile/own_profile.view',
-    'modules/static/dialogs.view'
-], function(Backbone, FeedView, OwnProfileView, DialogsView) {
+    'modules/dialogs/dialogs.view',
+    'modules/files/files.view',
+    'modules/groups/groups.view'
+], function(Backbone, FeedView, OwnProfileView, DialogsView, FilesView, GroupsView) {
 
     /**
      * Router
      */
     return Backbone.Router.extend({
         routes: {
-            '' : 'feed',
-            'profile': 'profile',
-            'dialogs': 'dialogs'
+            ''          : 'feed',
+            'profile'   : 'profile',
+            'dialogs'   : 'dialogs',
+            'files'     : 'files',
+            'groups'    : 'groups'
 
         },
 
@@ -48,6 +52,16 @@ define([
 
         dialogs: function() {
             this.currentView = new DialogsView();
+            this.currentView.render();
+        },
+
+        files: function() {
+            this.currentView = new FilesView();
+            this.currentView.render();
+        },
+
+        groups: function() {
+            this.currentView = new GroupsView();
             this.currentView.render();
         }
     });
