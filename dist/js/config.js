@@ -3934,14 +3934,14 @@ define('text',['module'], function (module) {
 define('text!modules/templates/feed.hbs',[],function () { return '<!-- start main panel-->\n\n<div id="panel-post">\n\n</div>\n\n\n<ul class="feed">\n    <li class="blog-item">\n        <div class="blog-item-pic pull-left">\n            <!-- If server side give correct photo with need size - after this must be tag IMG\n                 Now it\'s background in style -->\n        </div>\n        <div class="blog-item-body">\n            <a href="#" class="title">Александр Кашменский</a>\n            <p class="content">\n                Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate?\n            </p>\n        </div>\n        <div class="blog-item-footer">\n            <ul>\n                <li>\n                    <span class="count-like">12</span>\n                    <span class="glyphicon glyphicon-heart like"></span>\n                    Нравится\n                </li>\n                <li>\n                    <span class="count-repost">7</span>\n                    <span class="glyphicon glyphicon-bullhorn"></span>\n                    Поделиться\n                </li>\n            </ul>\n\n\n        </div>\n    </li>\n\n    <li class="blog-item">\n        <div class="blog-item-pic pull-left">\n            <!-- If server side give correct photo with need size - after this must be tag IMG\n                 Now it\'s background in style -->\n        </div>\n        <div class="blog-item-body">\n            <a href="#" class="title">Александр Кашменский</a>\n            <p class="content">\n                @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n            </p>\n        </div>\n        <div class="blog-item-footer">\n            <ul>\n                <li>\n                    <span class="count-like">3</span>\n                    <span class="glyphicon glyphicon-heart like"></span>\n                    Нравится\n                </li>\n                <li>\n                    <span class="count-repost">2</span>\n                    <span class="glyphicon glyphicon-bullhorn"></span>\n                    Поделиться\n                </li>\n            </ul>\n        </div>\n    </li>\n\n    <li class="blog-item">\n        <div class="blog-item-pic pull-left">\n            <!-- If server side give correct photo with need size - after this must be tag IMG\n                 Now it\'s background in style -->\n        </div>\n        <div class="blog-item-body">\n            <a href="#" class="title">Александр Кашменский</a>\n            <p class="content">\n                @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n            </p>\n        </div>\n        <div class="blog-item-footer">\n            <ul>\n                <li>\n                    <span class="count-like">44</span>\n                    <span class="glyphicon glyphicon-heart like"></span>\n                    Нравится\n                </li>\n                <li>\n                    <span class="count-repost"></span>\n                    <span class="glyphicon glyphicon-bullhorn"></span>\n                    Поделиться\n                </li>\n            </ul>\n        </div>\n    </li>\n\n</ul>';});
 
 
-define('text!modules/templates/panel_post.hbs',[],function () { return '<div class="panel panel-normal panel-post">\n    <ul id="myTab1" class="nav nav-tabs nav-justified panel-heading">\n        <!--<li class="input-lbl">-->\n        <input type="text" class="form-control" id="post-input-lbl" placeholder="Что нового, дружище?"/>\n        <!--</li>-->\n        <li class="active"><a href="#post-news" data-toggle="tab"><span\n                class="glyphicon glyphicon-bullhorn"></span> Новость</a></li>\n        <li><a href="#post-event" data-toggle="tab"><span\n                class="glyphicon glyphicon-calendar"></span> События</a></li>\n        <li><a href="#post-quiz" data-toggle="tab">\n            <span class="glyphicon glyphicon-stats"></span> Опрос</a></li>\n        <li><a href="#post-thx" data-toggle="tab"><span\n                class="glyphicon glyphicon-thumbs-up"></span> Спасибо</a></li>\n\n\n    </ul>\n    <div id="myTabContent" class="tab-content panel-post-content">\n        <div class="tab-pane fade active in" id="post-news">\n            <form action="" role="form" class="post-news-form">\n                <textarea class="form-control" rows="3" placeholder="Над чем работаете?"\n                          id="post-textarea"></textarea>\n                <input class="form-control" placeholder="Кого уведомить..">\n                <button type="button" class="btn pull-left">Отправить</button>\n                <div class="form-group attach pull-left">\n                    <!-- must be inputs tags-->\n                    <span class="glyphicon glyphicon-paperclip"></span>\n                    <span class="glyphicon glyphicon-camera"></span>\n                </div>\n            </form>\n\n        </div>\n        <div class="tab-pane fade" id="post-event">\n            <p>Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>\n        </div>\n        <div class="tab-pane fade" id="post-quiz">\n            <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>\n        </div>\n        <div class="tab-pane fade" id="post-thx">\n            <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche ...</p>\n        </div>\n    </div>\n</div>';});
+define('text!modules/templates/common/panel_post.hbs',[],function () { return '<div class="panel panel-normal panel-post">\n    <ul id="myTab1" class="nav nav-tabs nav-justified panel-heading">\n        <!--<li class="input-lbl">-->\n        <input type="text" class="form-control" id="post-input-lbl" placeholder="Что нового, дружище?"/>\n        <!--</li>-->\n        <li class="active"><a href="#post-news" data-toggle="tab"><span\n                class="glyphicon glyphicon-bullhorn"></span> Новость</a></li>\n        <li><a href="#post-event" data-toggle="tab"><span\n                class="glyphicon glyphicon-calendar"></span> События</a></li>\n        <li><a href="#post-quiz" data-toggle="tab">\n            <span class="glyphicon glyphicon-stats"></span> Опрос</a></li>\n        <li><a href="#post-thx" data-toggle="tab"><span\n                class="glyphicon glyphicon-thumbs-up"></span> Спасибо</a></li>\n\n\n    </ul>\n    <div id="myTabContent" class="tab-content panel-post-content">\n        <div class="tab-pane fade active in" id="post-news">\n            <form action="" role="form" class="post-news-form">\n                <textarea class="form-control" rows="3" placeholder="Над чем работаете?"\n                          id="post-textarea"></textarea>\n                <input class="form-control" placeholder="Кого уведомить..">\n                <button type="button" class="btn pull-left">Отправить</button>\n                <div class="form-group attach pull-left">\n                    <!-- must be inputs tags-->\n                    <span class="glyphicon glyphicon-paperclip"></span>\n                    <span class="glyphicon glyphicon-camera"></span>\n                </div>\n            </form>\n\n        </div>\n        <div class="tab-pane fade" id="post-event">\n            <p>Food truck fixie locavore, accusamus mcsweeney\'s marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.</p>\n        </div>\n        <div class="tab-pane fade" id="post-quiz">\n            <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney\'s organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone...</p>\n        </div>\n        <div class="tab-pane fade" id="post-thx">\n            <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche ...</p>\n        </div>\n    </div>\n</div>';});
 
 define('modules/common/panel_post.view',[
     'jquery',
     'underscore',
     'backbone',
     'handlebars',
-    'text!../templates/panel_post.hbs'
+    'text!../templates/common/panel_post.hbs'
 ], function($,_,Backbone, Handlebars, PanelPostTemplate) {
 
     /**
@@ -3950,6 +3950,7 @@ define('modules/common/panel_post.view',[
     return Backbone.View.extend({
         el: '#panel-post',
         template: Handlebars.compile(PanelPostTemplate),
+
 
 
         /**
@@ -4028,24 +4029,24 @@ define('modules/own_profile/own_profile.model',[
     var model = Backbone.Model.extend({
 
         defaults: {
-//            login: this.login
+//            login: 'Nik'
         },
 
         url: function() {
             return 'http://77.120.120.219:8082/api/profile.html';
         },
 
-        parse: function(response) {
-            // parse can be invoked for fetch and save, in case of save it can be undefined so check before using
-            if (response) {
-                if (response.success ) {
-                    // here you write code to parse the model data returned and return it as a js object
-                    // of attributeName: attributeValue
-
-                    return {login: response.login};      // just an example,
-                }
-            }
-        },
+//        parse: function(response) {
+//            // parse can be invoked for fetch and save, in case of save it can be undefined so check before using
+//            if (response) {
+//                if (response.success ) {
+//                    // here you write code to parse the model data returned and return it as a js object
+//                    // of attributeName: attributeValue
+//
+//                    return {login: response.login};      // just an example,
+//                }
+//            }
+//        },
 
         // override backbone synch to force a jsonp call
         sync: function(method, model, options) {
@@ -4062,20 +4063,20 @@ define('modules/own_profile/own_profile.model',[
             return $.ajax(params);
         },
 
-//        parse: function(response, options) {
-//            // parse can be invoked for fetch and save, in case of save it can be undefined so check before using
-//            if (response) {
-//                if (response.success ) {
-//                    // here you write code to parse the model data returned and return it as a js object
-//                    // of attributeName: attributeValue
-//                console.log('Parse response: ' + response);
-//                console.log('Parse options: '+ options);
-//
-////                    return {login: response.login};      // just an example,
-//                }
-//            }
-//
-//        },
+        parse: function(response, options) {
+            // parse can be invoked for fetch and save, in case of save it can be undefined so check before using
+            if (response) {
+                if (response.success ) {
+                    // here you write code to parse the model data returned and return it as a js object
+                    // of attributeName: attributeValue
+                console.log('Parse response: ' + response);
+                console.log('Parse options: '+ options);
+
+//                    return {login: response.login};      // just an example,
+                }
+            }
+
+        },
 
 
         initialize: function() {
@@ -4092,7 +4093,7 @@ define('modules/own_profile/own_profile.model',[
 
 });
 
-define('text!modules/templates/own_profile.hbs',[],function () { return '<div class="profile-own">\n\n    <div class="user-info">\n        <div class="user-pic"></div>\n        <div class="user-description">\n            <div class="user-name">\n                {{cur_user.login}}\n                Чарли Харпер\n            </div>\n            <div class="user-position">\n                Sofrware Engineer\n            </div>\n            <div class="user-status">\n                Online\n            </div>\n\n        </div>\n\n\n\n\n    </div>\n    <div class="panel panel-default user-details">\n        <div class="panel-heading" id="more-info">Показать подробную информацию</div>\n        <table class="table table-details" id="table-details">\n            <tr>\n                <td>Дата рождения:</td>\n                <td><a href="#">03.08.1978</a></td>\n\n            </tr>\n            <tr>\n                <td>Город:</td>\n                <td><a href="#">Киев</a></td>\n            </tr>\n            <tr>\n                <td>Образование:</td>\n                <td><a href="#">Донецкий Национальный Технический Университет, 2012</a></td>\n            </tr>\n        </table>\n\n\n    </div>\n\n\n    <div id="panel-post">\n\n\n    </div>\n\n\n    <ul class="feed">\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate?\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">12</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost">7</span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n\n\n            </div>\n        </li>\n\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">3</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost">2</span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n            </div>\n        </li>\n\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">44</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost"></span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n            </div>\n        </li>\n\n    </ul>\n</div>';});
+define('text!modules/templates/own_profile.hbs',[],function () { return '<div class="profile-own">\n\n    <div class="user-info">\n        <div class="user-pic"></div>\n        <div class="user-description">\n            <div class="user-name">\n                {{cur_user.login}}\n                Чарли Харпер\n            </div>\n            <div class="user-position">\n                Software Engineer\n            </div>\n            <div class="user-status">\n                Online\n            </div>\n\n        </div>\n\n\n\n\n    </div>\n    <div class="panel panel-default user-details">\n        <div class="panel-heading" id="more-info">Показать подробную информацию</div>\n        <table class="table table-details" id="table-details">\n            <tr>\n                <td>Дата рождения:</td>\n                <td><a href="#">03.08.1978</a></td>\n\n            </tr>\n            <tr>\n                <td>Город:</td>\n                <td><a href="#">Киев</a></td>\n            </tr>\n            <tr>\n                <td>Образование:</td>\n                <td><a href="#">Донецкий Национальный Технический Университет, 2012</a></td>\n            </tr>\n        </table>\n\n\n    </div>\n\n\n    <div id="panel-post">\n\n\n    </div>\n\n\n    <ul class="feed">\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate?\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">12</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost">7</span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n\n\n            </div>\n        </li>\n\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">3</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost">2</span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n            </div>\n        </li>\n\n        <li class="blog-item">\n            <div class="blog-item-pic pull-left">\n                <!-- If server side give correct photo with need size - after this must be tag IMG\n                     Now it\'s background in style -->\n            </div>\n            <div class="blog-item-body">\n                <a href="#" class="title">Александр Кашменский</a>\n                <p class="content">\n                    @<a href="#">Дмитрий Левицкий</a>, lorem ipsum dolor sit amet, consectetur adipisicing elit.\n                    Ducimus enim excepturi iure minus odio, provident quas quisquam velit vitae voluptate? Ab culpa, eaque eos impedit possimus repellendus. Dolorum, iure, ullam.\n                </p>\n            </div>\n            <div class="blog-item-footer">\n                <ul>\n                    <li>\n                        <span class="count-like">44</span>\n                        <span class="glyphicon glyphicon-heart like"></span>\n                        Нравится\n                    </li>\n                    <li>\n                        <span class="count-repost"></span>\n                        <span class="glyphicon glyphicon-bullhorn"></span>\n                        Поделиться\n                    </li>\n                </ul>\n            </div>\n        </li>\n\n    </ul>\n</div>';});
 
 define('modules/own_profile/own_profile.view',[
     'jquery',
@@ -4107,6 +4108,8 @@ define('modules/own_profile/own_profile.view',[
     /**
      * Profile View
      */
+
+
     return Backbone.View.extend({
         el: '#central-swap',
         template: Handlebars.compile(OwnProfileTemplate),
@@ -4495,7 +4498,7 @@ require([
     'bootflat-icheck',
     'bootflat-jquery.fs.selecter',
     'bootflat-jquery.fs.stepper',
-    'respond',
+    'respond'
 ], function($, _, Backbone, Handlebars, Router, AppView) {
 
     window.app = {};

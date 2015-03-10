@@ -3,7 +3,7 @@ define([
     'underscore',
     'backbone',
     'handlebars',
-    'text!../templates/panel_post.hbs'
+    'text!../templates/common/panel_post.hbs'
 ], function($,_,Backbone, Handlebars, PanelPostTemplate) {
 
     /**
@@ -12,6 +12,7 @@ define([
     return Backbone.View.extend({
         el: '#panel-post',
         template: Handlebars.compile(PanelPostTemplate),
+
 
 
         /**

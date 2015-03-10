@@ -73,17 +73,18 @@ module.exports = function (grunt) {
         },
 
         sass: {
-            dist: {
+            dev: {
                 options: {
-//                    style: 'compressed',
-                    preserveLicenseComments: false,
+                    preserveLicenseComments: true,
                     sourceMap: true
                 },
 
                 files: {
                     '<%= appConfig.dist %>/styles/main.css' : '<%= appConfig.app %>/styles/sass/main.scss'
                 }
+
             }
+
         },
 
 
@@ -113,8 +114,20 @@ module.exports = function (grunt) {
             }
         },
 
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= appConfig.dist %>/styles',
+                    src: ['*.css', '!*.min.css'],
+                    dest: '<%= appConfig.dist %>/styles',
+                    ext: '.min.css'
+                }]
+            }
+        },
+
         copy: {
-            dist: {
+            dev: {
                 files: [
                     {
                         expand: true,
@@ -131,33 +144,50 @@ module.exports = function (grunt) {
                     }
                 ]
             }
+
         },
 
         clean: {
-            dist: ['<%= appConfig.dist %>/*']
+            dev: ['<%= appConfig.dist %>/*'],
+            prod: ['<%= appConfig.dist %>/styles/main.css', '<%= appConfig.dist %>/styles/main.css.map']
         }
     });
     grunt.registerTask('serve', [
-        'clean:dist',
-        'copy:dist',
-        'sass:dist',
+        'clean:dev',
+        'copy:dev',
+        'sass:dev',
         'requirejs:dev',
         'connect:livereload',
         'watch'
     ]);
 
     grunt.registerTask('serve', function (target) {
-        if (target === 'prod') {
-            return grunt.task.run([
-                'clean:dist',
-                'requirejs:prod'
-            ]);
+
+        switch (target) {
+            case 'test':
+                return grunt.task.run([
+                    'clean:dev',
+//                    'copy:dev',
+                    'sass:dev',
+                    'requirejs:dev'
+                ]);
+            break;
+
+            case 'prod':
+                return grunt.task.run([
+                    'clean:dev',
+                    'sass:dev',
+                    'cssmin',
+                    'clean:prod',
+                    'requirejs:prod'
+                ]);
+            break;
         }
 
         grunt.task.run([
-            'clean:dist',
-            'copy:dist',
-            'sass:dist',
+            'clean:dev',
+            'copy:dev',
+            'sass:dev',
             'requirejs:dev',
             'connect:livereload',
             'watch'

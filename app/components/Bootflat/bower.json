@@ -12,7 +12,7 @@
   },
   "main": [
     "bootflat/css/*",
-    "bootflat/sass/*",
+    "bootflat/scss/*",
     "bootflat/fonts/*",
     "bootflat/js/*",
     "bootflat/img/*"
@@ -21,7 +21,7 @@
 	"mobile",
 	"html5",
 	"css3",
-	"sass",
+	"scss",
 	"bootflat",
 	"bootstrap",
 	"flat",

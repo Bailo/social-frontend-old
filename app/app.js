@@ -10,7 +10,7 @@ require([
     'bootflat-icheck',
     'bootflat-jquery.fs.selecter',
     'bootflat-jquery.fs.stepper',
-    'respond',
+    'respond'
 ], function($, _, Backbone, Handlebars, Router, AppView) {
 
     window.app = {};

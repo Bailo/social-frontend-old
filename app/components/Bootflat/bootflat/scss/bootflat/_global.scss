@@ -52,7 +52,7 @@ $darkgray-light:              #656D78 !default;
 // Global Mixins
 //------------------------------------------------------
 
-// We use this to loading sass files
+// We use this to loading scss files
 @mixin exports($name) {
   @if index($modules, $name) {
   } @else {

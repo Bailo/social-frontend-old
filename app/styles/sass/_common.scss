@@ -4,7 +4,7 @@ body {
 }
 
 .show {
-  display: block;
+  display: block !important;
 }
 
 .hide {
@@ -14,4 +14,8 @@ body {
 
 .page-layout {
   margin-top: 20px;
+}
+
+.disable {
+  display: none;
 }

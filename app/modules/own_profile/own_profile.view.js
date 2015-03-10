@@ -11,6 +11,8 @@ define([
     /**
      * Profile View
      */
+
+
     return Backbone.View.extend({
         el: '#central-swap',
         template: Handlebars.compile(OwnProfileTemplate),
